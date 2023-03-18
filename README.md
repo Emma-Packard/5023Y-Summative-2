@@ -1,4 +1,11 @@
-##🦗 Spring Assignment BIO 5023Y
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+
+# 🦗 Spring Assignment BIO 5023Y
 
 ## 🧠 Brief introduction
 
