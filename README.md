@@ -1,10 +1,5 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
-\#🦗 Spring Assignment BIO 5023Y
+#🦗 Spring Assignment BIO 5023Y
 
 ## 🧠 Brief introduction
 
@@ -17,7 +12,7 @@ for more information
 
 ## 💻Software
 
-This project was completed using R version 4.2.2, using the cloud-based
+This project was completed using R version 4.2.3, using the cloud-based
 website posit-cloud
 
 Packages needed -
