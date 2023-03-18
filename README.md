@@ -34,7 +34,7 @@ The data surrounds multiplie variables that can be a proxy for the cost of the d
 reference link ---\>
 
 | Variable   | Definition                                                                                                 |
-|--------------------------|----------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------|
 | Delta_smi  | Change in weight(g)                                                                                        |
 | Diet       | Percentage nutritional content of the food the animal was fed                                              |
 | Song_week1 | The total amount of time the cricket spent singing in the first week of the experiment                     |
