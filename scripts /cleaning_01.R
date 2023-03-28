@@ -1,6 +1,7 @@
 # 📦 PACKAGES ----
 library(tidyverse) # a range of helpful packages
 library(janitor) # helps to format the data
+library(car)
 #_________________________________________----
 
 #💾 IMPORTING DATA ----
@@ -60,7 +61,7 @@ summary_na <- cricket %>%
  #           max=max(delta_smi, na.rm=TRUE)) # seeing the max
 # - is reduction in weight 
 
-filter_cricket%>% 
+cricket%>% 
   summarise(min=min(song_week1, na.rm=TRUE),# seeing the min
             max=max(song_week1, na.rm=TRUE)) # seeing the max
 ## can't be a minus ---- filture /
@@ -83,18 +84,78 @@ filter_cricket %>%
 
 # change the variable names to something nice! ----
 
-filter_cricket <- rename(cricket, "starting_mass"="mass0", "change_in_weight" = "delta_smi", "song_week"="song_week1")
+filter_cricket <- rename(filter_cricket, "starting_mass"="mass0", "change_in_weight" = "delta_smi", "song_week"="song_week1")
 
 # 📊 Exploration Plots ----
 
 
 filter_cricket %>% 
-  ggplot(aes(x = "prototum", y = "starting_mass"))+
+  ggplot(aes(x = "diet", y = "song_week"))+
   theme_minimal()+
   theme(legend.position = "none")
 
 
+GGally::ggpairs(filter_cricket)# everything plot
 
+
+# violin plot to show the how diet affects the change in weight 
+
+graph_01 <- filter_cricket %>% 
+  ggplot(aes(x = diet,
+             y = change_in_weight,
+            fill = diet, 
+            colour = diet,
+             group= diet))+
+  geom_violin(alpha = 0.2)+
+  geom_boxplot(width = 0.2,
+               alpha = 0.6)+
+  theme_classic()+
+#  scale_fill_brewer(palette="Dark2")+
+  #theme(legend.position = "none")+
+  labs(
+    x = "diet",
+    y = "change in weight",
+    title = "",
+    subtitle = "")
+
+graph_01 # makes a blue graph see how to make different colours if time 
+# get the averges of the different change in weights see if sing if they sang more 
+# see if the size of the protounm changes the amount they sing 
+# if singing affects the change in wieght - do bigger ones sing more -> also if the bigger sing more do they lose less weight 
+
+# scatter
+  
+graph_02 <- filter_cricket %>% 
+  ggplot(aes(x = song_week,
+             y = song_week,
+             fill = song_week, 
+             colour = song_week,
+             group= song_week))+
+  geom_violin(alpha = 0.2)+
+  geom_boxplot(width = 0.2,
+               alpha = 0.6)+
+  theme_classic()+
+  labs(
+    x = "diet",
+    y = "change in weight",
+    title = "",
+    subtitle = "")
+
+ graph_02
+# poss mean center it 
+
+
+
+
+model_1 <- lm(change_in_weight~starting_mass+diet+pronotum+song_week,data = filter_cricket)
+#poss take out diet or protoumn as they are highly corralted 
+
+summary(model_1)
+
+vif(model_1)# seeing the correlation and how they affect the SE - not highly correlated
+# starting mass, is highly corralted with pronotum, from the vif (want less than 5)
+
+performance::check_model(model_1)
 
 
 
