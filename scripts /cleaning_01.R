@@ -157,7 +157,19 @@ vif(model_1)# seeing the correlation and how they affect the SE - not highly cor
 
 performance::check_model(model_1)
 
+ggplot()+
+  geom_qq(aes(sample = rstandard(model_1)))+
+  geom_abline(colour="purple")
+# residuals are nomals dis
 
+shapiro.test(rstandard(model_1))
+# p value is signifant, so the residauls are not normals dis
+
+plot(model_1)
+
+png(filename = "img/check_model_1.1.png")
+performance::check_model(model_1)
+dev.off()
 
 
 
