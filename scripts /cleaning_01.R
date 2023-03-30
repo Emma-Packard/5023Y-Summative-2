@@ -85,7 +85,7 @@ filter_cricket %>%
 # change the variable names to something nice! ----
 
 filter_cricket <- rename(filter_cricket, "starting_mass"="mass0", "change_in_weight" = "delta_smi", "song_week"="song_week1")
-
+#_______________________________________----
 # 📊 Exploration Plots ----
 
 
@@ -144,6 +144,18 @@ graph_02 <- filter_cricket %>%
  graph_02
 # poss mean center it 
 
+ # scatter plot ----
+
+  ggplot(filter_cricket, 
+         aes(x= song_week, 
+             y= change_in_weight)) +
+             geom_point()
+ 
+# mean centre
+# remove the outliers 
+# line of best fit
+# make the masses the same, so you are actualing finding the masses are the same #
+# histogram
 
 
 
