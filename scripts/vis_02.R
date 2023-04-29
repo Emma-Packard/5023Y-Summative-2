@@ -46,6 +46,9 @@ ggplot(filter_cricket,
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 # diet does not affect starting mass starting mass:pronotum size
 
+#_______________________________________----
+
+#change in wieght and diet ----
 
 # change/ song / diet 
 filter_cricket %>% 
@@ -56,41 +59,44 @@ geom_point()+
 geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) # adding a line of best fit
 # as diet % increases so does the change in weight, and the amount of singing increases
 
+# start/change/diet
+filter_cricket %>% 
+  ggplot(aes(x=starting_mass,
+             y=change_in_weight,
+             colour = factor(diet)))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+# weight decreases in the lower diet percentages, the higher the crickets starting mass the more weight the cricket losses 
+
+#diet/ change/ pronotum
 
 filter_cricket %>% 
-  ggplot(aes(x=song_week,
+  ggplot(aes(x= pronotum,
              y=change_in_weight,
-             shape=starting_mass,
              colour = factor(diet)))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 
+# increase in weight for the higher food percentages, the smaller the pronotum the bigger increase in weight
 
+#______________________________----
+
+#diet and amount of singing 
 
 filter_cricket %>% 
-  ggplot(aes(x=song_week,
-             y=change_in_weight,
-             colour = factor(starting_mass)))+
+  ggplot(aes(x= pronotum,
+             y=song_week,
+             colour = factor(diet)))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 
+# amount of singing increase as the pronotum gets bigger, 
 
 
 
 
 
 
-
-
-filter_cricket %>% 
-ggplot(aes(x = diet,
-           y = pronotum))+
-geom_point(colour=diet)+
-geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
-#scale_color_manual(values = c())  
-  
-  
-scale_color_brewer(palette="Set1")
 
       
 
