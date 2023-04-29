@@ -2,6 +2,7 @@
 library(tidyverse) # a range of helpful packages
 library(janitor) # helps to format the data
 library(car)
+library(RColorBrewer)
 #_________________________________________----
 
 #💾 IMPORTING DATA ----
