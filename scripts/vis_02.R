@@ -53,7 +53,27 @@ ggplot(aes(x=song_week,
            y=change_in_weight,
            colour = factor(diet)))+
 geom_point()+
-geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) # adding a line of best fit
+# as diet % increases so does the change in weight, and the amount of singing increases
+
+
+filter_cricket %>% 
+  ggplot(aes(x=song_week,
+             y=change_in_weight,
+             shape=starting_mass,
+             colour = factor(diet)))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+
+
+
+filter_cricket %>% 
+  ggplot(aes(x=song_week,
+             y=change_in_weight,
+             colour = factor(starting_mass)))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+
 
 
 
