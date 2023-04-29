@@ -90,9 +90,20 @@ filter_cricket %>%
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 
-# amount of singing increase as the pronotum gets bigger, 
+# amount of singing increase as the pronotum gets bigger, ??
 
 
+
+filter_cricket %>% 
+  ggplot(aes(x= starting_mass,
+             y=song_week,
+             colour = factor(diet)))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+# singing increases when the starting mass is higher - diet doesn't seem to affect this 
+
+#____________________________----
+# LM for diet and change in weight
 
 
 
