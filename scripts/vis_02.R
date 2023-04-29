@@ -49,12 +49,12 @@ ggplot(filter_cricket,
 
 # change/ song / diet 
 filter_cricket %>% 
-ggplot(aes(x=diet,
+ggplot(aes(x=song_week,
            y=change_in_weight,
-           colour = factor(pronotum)))+
+           colour = factor(diet)))+
 geom_point()+
-geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
-scale_colour_brewer("purple")
+geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+
 
 
 
