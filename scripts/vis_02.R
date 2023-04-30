@@ -90,7 +90,7 @@ filter_cricket %>%
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 
-# amount of singing increase as the pronotum gets bigger, ??
+# amount of singing increase as the pronotum gets bigger, diet isnt affected
 
 
 
