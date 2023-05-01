@@ -102,13 +102,44 @@ filter_cricket %>%
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 # singing increases when the starting mass is higher - diet doesn't seem to affect this 
 
+# starting mass/ change. diet
+
+filter_cricket %>% 
+  ggplot(aes(x= starting_mass,
+             y= change_in_weight,
+             colour = factor(diet)))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+
+# the lower the diet percentage, and the higher the starting mass the bigger the change in weight is 
 #____________________________----
 # LM for diet and change in weight
 
+lsmodel1 <- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:starting_mass + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week, data = filter_cricket)
+
+
+lsmodel1 %>% # summary, including conf,int 
+  broom::tidy(conf.int = T)
+
+#checking the p values
+broom::tidy(lsmodel1)
 
 
 
+# performance check
+pdf("check_lsmodel1.pdf")
+performance::check_model(lsmodel1)
+dev.off() 
 
-      
+#drop1 seeing what needs to be dropped
+
+drop1(lsmodel1, test = "F")
 
 
+
+#_______________________________
+
+lsmodel2 <- lm(change_in_weight~diet + starting_mass + song_week + pronotum, data = filter_cricket)
+
+#performance check 
+ performance::check_posterior_predictions(lsmodel2)

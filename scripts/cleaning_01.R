@@ -3,6 +3,7 @@ library(tidyverse) # a range of helpful packages
 library(janitor) # helps to format the data
 library(car)
 library(RColorBrewer)
+library(patchwork)# checking lm
 #_________________________________________----
 
 #💾 IMPORTING DATA ----
@@ -74,6 +75,7 @@ filter_cricket <- cricket %>%   #select the data the want to use later so I don'
   filter(!is.na(delta_smi)) %>%   # filtering out na
   filter(song_week1>= 0)
 
+view(filter_cricket)
 # checking to see of the na and negative removed from ^
 filter_cricket %>%
   summarise(across(everything(), ~sum(is.na(.x))))  # summary of each vector's na as a object
