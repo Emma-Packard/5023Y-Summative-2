@@ -106,3 +106,4 @@ drop1(lsmodel12, test = "F")# can look at the AIC
 
 summary(lsmodel12)
 
+# look at lecture on what to do left this is the perfect model ;)
