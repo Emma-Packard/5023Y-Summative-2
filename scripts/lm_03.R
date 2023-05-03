@@ -100,10 +100,16 @@ lsmodel12<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + di
 lsmodel12 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
+pdf("my_plots_new.pdf")
 performance::check_model(lsmodel12)# seeing the fit of the model
+dev.off()
 
 drop1(lsmodel12, test = "F")# can look at the AIC 
 
 summary(lsmodel12)
 
 # look at lecture on what to do left this is the perfect model ;)
+# 
+# 
+# 
+View(filter_cricket)

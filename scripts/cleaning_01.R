@@ -121,4 +121,9 @@ ggplot(filter_cricket,
 #_____________________________________----
 
 
+tapply(filter_cricket$change_in_weight,filter_cricket$diet,mean)
+
+phil <- lm(change_in_weight~diet,data=filter_cricket)
+
+summary(phil)
 
