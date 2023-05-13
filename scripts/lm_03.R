@@ -5,108 +5,71 @@ source("scripts/vis_02.R")
 
 #___________________________----
 
+# included all of the interaction terms, as all seem to be important
+# This Lm shows how the change in the crickets weight is affected by multiple variables, includeing there interaction terms
 
-lsmodel6<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:starting_mass + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
+lsmodel1<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:starting_mass + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
 
-lsmodel6 %>% 
+lsmodel1 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
-performance::check_model(lsmodel6)# seeing the fit of the model
+performance::check_model(lsmodel9)# seeing the fit of the model,in a image form
 
-drop1(lsmodel6, test = "F")# can look at the AIC 
-# these looked different form the others 
-# diet:song_week f= 5.3102, df=526,1, p=0.02159
-# diet:pronotum f = 4.9192, df=526,1, p=0.02699
-summary(lsmodel6)
+drop1(lsmodel1, test = "F")# can look at the AIC, want the smallest AIC
+# diet:starting AIC not extremely different
 
+summary(lsmodel1)# a summary of everything
+# diet:starting mass not significant >0.05
 
+#_____________________________________________________-----
 
-# removing diet:song_week, diet:starting_mass
-lsmodel7<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
+#lsmodel
+#removing diet:starting_mass - due to a high p value also the starting mass should not be interacting with diet due to the starting mass already being in place at the start of the experiment
 
-lsmodel7 %>% 
+lsmodel2<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
+
+lsmodel2 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
-performance::check_model(lsmodel7)# seeing the fit of the model
+performance::check_model(lsmodel2)# seeing the fit of the model
 
-drop1(lsmodel7, test = "F")# can look at the AIC 
+drop1(lsmodel2, test = "F")# can look at the AIC 
 
-summary(lsmodel7)
-#diet:pronotum f=14.3365
-
-
-
-#dropping diet:pronotum from the model
-
-lsmodel8<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
-
-lsmodel8 %>% 
-  broom::tidy(conf.int = F)#add 95% conf intervals
-
-performance::check_model(lsmodel8)# seeing the fit of the model
-
-drop1(lsmodel8, test = "F")# can look at the AIC 
-
-summary(lsmodel8)
-
-# dropped the wrong ones - starting again -
-
-lsmodel9<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:starting_mass + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
-
-lsmodel9 %>% 
-  broom::tidy(conf.int = F)#add 95% conf intervals
-
-performance::check_model(lsmodel9)# seeing the fit of the model
-
-drop1(lsmodel9, test = "F")# can look at the AIC 
-
-summary(lsmodel9)
-
-#removing diet and starting_mass - due to a high p value
-
-lsmodel10<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
-
-lsmodel10 %>% 
-  broom::tidy(conf.int = F)#add 95% conf intervals
-
-performance::check_model(lsmodel10)# seeing the fit of the model
-
-drop1(lsmodel10, test = "F")# can look at the AIC 
-
-summary(lsmodel10)
+summary(lsmodel2)
 
 
 #droped starting_mass:song_week
 
-lsmodel11<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum,data = filter_cricket)
+lsmodel3<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum,data = filter_cricket)
 
 
 
-lsmodel11 %>% 
+lsmodel3 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
-performance::check_model(lsmodel11)# seeing the fit of the model
+performance::check_model(lsmodel3)# seeing the fit of the model
 
-drop1(lsmodel11, test = "F")# can look at the AIC 
+drop1(lsmodel3, test = "F")# can look at the AIC 
 
-summary(lsmodel11)
+summary(lsmodel3)
 
 
+# final model
 # droped starting_mass:pronotum
 
-lsmodel12<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum, data = filter_cricket)
+lsmodel4<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum, data = filter_cricket)
 
 
-lsmodel12 %>% 
+lsmodel4 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
 pdf("my_plots_new.pdf")
-performance::check_model(lsmodel12)# seeing the fit of the model
+performance::check_model(lsmodel4)# seeing the fit of the model
 dev.off()
 
-drop1(lsmodel12, test = "F")# can look at the AIC 
+drop1(lsmodel4, test = "F")# can look at the AIC 
 
-summary(lsmodel12)
+summary(lsmodel4)
 
 # look at lecture on what to do left this is the perfect model ;)
 # 
