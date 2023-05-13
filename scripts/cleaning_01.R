@@ -112,12 +112,6 @@ ggplot(filter_cricket,
 # shows a positive correlation
 
 
-# mean centre
-# remove the outliers 
-# line of best fit
-# make the masses the same, so you are actualing finding the masses are the same
-# histogram
-
 #_____________________________________----
 
 
