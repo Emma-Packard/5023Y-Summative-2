@@ -1,0 +1,24 @@
+---
+title: "data_write_up"
+output: pdf_document
+date: "2023-05-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+Data science
+
+```{r importing script, include=}
+source("scripts/lm_03.R")
+```
+insert work here 
+and add graphs where needed 
+
+
+```{r plot_ep, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+# plot name 
+
+```

@@ -1,11 +1,10 @@
 
 # sourcing scripts 
-source("scripts/cleaning_01.R")
 source("scripts/vis_02.R")
 
 #___________________________----
 
-# included all of the interaction terms, as all seem to be important
+#included all of the interaction terms, as all seem to be important
 # This Lm shows how the change in the crickets weight is affected by multiple variables, includeing there interaction terms
 
 lsmodel1<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:starting_mass + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum + starting_mass:song_week,data = filter_cricket)
@@ -38,7 +37,8 @@ drop1(lsmodel2, test = "F")# can look at the AIC
 summary(lsmodel2)
 
 
-#droped starting_mass:song_week
+#droped starting_mass:song_week as not sig 
+
 
 lsmodel3<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum + starting_mass:pronotum,data = filter_cricket)
 
@@ -54,9 +54,9 @@ drop1(lsmodel3, test = "F")# can look at the AIC
 summary(lsmodel3)
 
 
-# final model
+# final model ----
 # droped starting_mass:pronotum
-
+# everything in this model is significant
 lsmodel4<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum, data = filter_cricket)
 
 
@@ -69,10 +69,5 @@ dev.off()
 
 drop1(lsmodel4, test = "F")# can look at the AIC 
 
-summary(lsmodel4)
+summary(lsmodel4)#summary of the model
 
-# look at lecture on what to do left this is the perfect model ;)
-# 
-# 
-# 
-View(filter_cricket)

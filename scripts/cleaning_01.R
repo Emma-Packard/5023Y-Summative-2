@@ -29,10 +29,6 @@ glimpse(cricket)# looking at the data/ checking that the data in the correct cla
 # making all the variables into snake_case
 cricket <- janitor::clean_names(cricket)# cleaning column names
 
-# check for duplication
-#cricket %>% 
-#  duplicated() %>% 
-#  sum() # none can remove ----
 
 # checking for NA's
 cricket %>% 
@@ -43,30 +39,10 @@ cricket %>%
 summary_na <- cricket %>%
   summarise(across(everything(), ~sum(is.na(.x)))) # summary of each vector's na as a object
 
-# SUMMARISE TO MAKE CALCULATIONS LATER?? ---
-#cricket%>% 
-#  summarise(min=min(diet, na.rm=TRUE), # seeing the min
-#            max=max(diet, na.rm=TRUE)) # seeing the max
-
-
-#cricket%>% 
-#  summarise(min=min(pronotum, na.rm=TRUE),# seeing the min
- #           max=max(pronotum, na.rm=TRUE)) # seeing the max
-
-#cricket%>% 
- # summarise(min=min(mass0, na.rm=TRUE),# seeing the min
- #           max=max(mass0, na.rm=TRUE)) # seeing the max
-# mass at the start of the experiment 
-
-#cricket%>% 
- # summarise(min=min(delta_smi, na.rm=TRUE),# seeing the min
- #           max=max(delta_smi, na.rm=TRUE)) # seeing the max
-# - is reduction in weight 
-
 cricket%>% 
   summarise(min=min(song_week1, na.rm=TRUE),# seeing the min
             max=max(song_week1, na.rm=TRUE)) # seeing the max
-## can't be a minus ---- filture /
+## can't be a minus ---- fliture /
 
 # filtering out NA's/ minus 
 

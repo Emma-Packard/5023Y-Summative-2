@@ -14,27 +14,6 @@ ggplot(filter_cricket,
 geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 # higher diet percentage, increases the change in weight  
 
-
-# how diet affects singing ----
-ggplot(filter_cricket, 
-       aes(x= diet, 
-           y= song_week,
-           fill=change_in_weight,
-           colour=change_in_weight)) +
-  geom_point()+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
-# increase in diet percentage increases the amount of singing
-
-# how diet affects pronotum size
-ggplot(filter_cricket, 
-       aes(x= diet, 
-           y= pronotum,
-           fill=change_in_weight,
-           colour=change_in_weight)) +
-  geom_point()+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
-# diet does not affect starting mass 
-
 #________________________________----
 
 #change in weight and diet ----
@@ -69,26 +48,7 @@ filter_cricket %>%
 # increase in weight for the higher food percentages, the smaller the pronotum the bigger increase in weight
 
 #______________________________----
-
-#diet and amount of singing 
-
-filter_cricket %>% 
-  ggplot(aes(x= pronotum,
-             y=song_week,
-             colour = factor(diet)))+
-  geom_point()+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
-
-# amount of singing increase as the pronotum gets bigger, diet isnt affected
-
-filter_cricket %>% 
-  ggplot(aes(x= starting_mass,
-             y=song_week,
-             colour = factor(diet)))+
-  geom_point()+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
-# singing increases when the starting mass is higher - diet doesn't seem to affect this 
-
+ 
 # starting mass/ change. diet
 
 filter_cricket %>% 
