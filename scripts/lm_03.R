@@ -75,3 +75,9 @@ summary(lsmodel4)#summary of the model
 
 #statical tests
 
+anova(lsmodel4)
+# Df = 1
+# f = high amounts of variance in diet, song and pronotum 
+# 
+
+
