@@ -71,3 +71,7 @@ drop1(lsmodel4, test = "F")# can look at the AIC
 
 summary(lsmodel4)#summary of the model
 
+#_____________________----
+
+#statical tests
+
