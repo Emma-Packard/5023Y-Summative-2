@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Data science
 
-```{r importing script, include=}
+```{r importing script, include=FALSE}
 source("scripts/lm_03.R")
 ```
 insert work here 
@@ -19,6 +19,6 @@ and add graphs where needed
 
 
 ```{r plot_ep, echo= FALSE, fig.asp = 0.6, fig.width= 6}
-# plot name 
+summary_table
 
 ```

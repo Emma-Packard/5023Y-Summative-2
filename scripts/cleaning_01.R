@@ -1,9 +1,8 @@
 # 📦 PACKAGES ----
 library(tidyverse) # a range of helpful packages
-library(janitor) # helps to format the data
-library(car)
-library(RColorBrewer)
-library(patchwork)# checking lm
+library(janitor)# helps to format the data
+library(kableExtra)#nice tables
+library(patchwork)# big chart, with extras
 #_________________________________________----
 
 #💾 IMPORTING DATA ----

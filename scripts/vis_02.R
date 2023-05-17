@@ -53,8 +53,8 @@ filter_cricket %>%
 
 filter_cricket %>% 
   ggplot(aes(x= starting_mass,
-             y= change_in_weight,
-             colour = factor(diet)))+
+             y= change_in_weight))+
+             #colour = factor(diet)))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 

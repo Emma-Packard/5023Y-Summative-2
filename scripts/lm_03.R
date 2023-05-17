@@ -12,7 +12,7 @@ lsmodel1<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + die
 lsmodel1 %>% 
   broom::tidy(conf.int = F)#add 95% conf intervals
 
-performance::check_model(lsmodel9)# seeing the fit of the model,in a image form
+performance::check_model(lsmodel1)# seeing the fit of the model,in a image form
 
 drop1(lsmodel1, test = "F")# can look at the AIC, want the smallest AIC
 # diet:starting AIC not extremely different
@@ -65,7 +65,7 @@ lsmodel4 %>%
 
 pdf("my_plots_new.pdf")
 performance::check_model(lsmodel4)# seeing the fit of the model
-dev.off()
+dev.off()#
 
 drop1(lsmodel4, test = "F")# can look at the AIC 
 
@@ -79,5 +79,17 @@ anova(lsmodel4)
 # Df = 1
 # f = high amounts of variance in diet, song and pronotum 
 # 
+summary_table <- 
+broom::tidy(lsmodel4) %>% 
+  rename("Term"="term",
+         "Coefficient" = "estimate",
+         "Standard Error" = "std.error",
+         "t" = "statistic",
+         "p value" = "p.value") %>% 
+  mutate(across(c(Coefficient: t), round,2)) %>% 
+ # mutate(`p value` = report_p(`p value`)) %>% 
+  kbl() %>% 
+  row_spec(c(3,4,7), color = 'white', background = 'black') %>% 
+  kable_styling()
 
 
