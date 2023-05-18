@@ -125,13 +125,18 @@ starting_mass_marginal+weight_starting_scatterplot+change_in_weight_marginal+ # 
 
 #_________________
 
+no_0 <- filter_cricket %>% 
+  filter(song_week>0)# removed 0s for this plot as a test
+
 weight_starting_scatterplot2 <- 
-  ggplot(filter_cricket, 
+ggplot(no_0, 
          aes(x= song_week, 
              y= change_in_weight, 
              colour= factor(diet))) +
+  theme_classic()+
   theme(legend.position = "none")+# removes the fig legend
   geom_point()
+  
 
 change_marginal <- 
   filter_cricket %>% 
@@ -166,9 +171,10 @@ AA#
 BBC
 BBC"
 
+
 song_marginal+weight_starting_scatterplot2+change_marginal+ # order of plots is important
 plot_layout(design=layout)
 
 # change labs, including factor(diet)
-# plot themes 
+# plot themes /
 
