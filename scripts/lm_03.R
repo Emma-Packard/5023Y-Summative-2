@@ -91,5 +91,35 @@ mutate(p.value = scales::pvalue(p.value)) %>% # changes the pvalues <0.001
   kbl() %>% 
   row_spec(c(3,5,7), color = 'white', background = 'purple') %>% 
   kable_styling()
+#_____________________________
 
+
+weight_starting_scatterplot <- 
+  ggplot(filter_cricket, 
+         aes(x= starting_mass, 
+             y= change_in_weight)) +
+             geom_point()
+
+ starting_mass_marginal<-# density plot that will be at the side of the graph
+  filter_cricket%>%  
+  ggplot()+
+  geom_density(aes(x=starting_mass), fill="darkgrey")+
+  #theme_void()+
+  coord_flip() # this graph needs to be rotated
+ 
+
+change_in_weight_marginal <- # density plot that is at the side of the plot
+  filter_cricket %>% 
+  ggplot()+
+  geom_density(aes(x=change_in_weight), fill="darkgrey")+
+  theme_void()
+  
+layout <- "
+AA#
+BBC
+BBC"
+
+
+change_in_weight_marginal+weight_starting_scatterplot+starting_mass_marginal+ # order of plots is important
+  plot_layout(design=layout)
 
