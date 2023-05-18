@@ -81,15 +81,15 @@ anova(lsmodel4)
 # 
 summary_table <- 
 broom::tidy(lsmodel4) %>% 
+mutate(p.value = scales::pvalue(p.value)) %>% # changes the pvalues <0.001
   rename("Term"="term",
-         "Coefficient" = "estimate",
+         "Coefficient" = "estimate", # changing the names to be better
          "Standard Error" = "std.error",
          "t" = "statistic",
          "p value" = "p.value") %>% 
-  mutate(across(c(Coefficient: t), round,2)) %>% 
- # mutate(`p value` = report_p(`p value`)) %>% 
+  mutate(across(c(Coefficient: t), round,5)) %>% 
   kbl() %>% 
-  row_spec(c(3,4,7), color = 'white', background = 'black') %>% 
+  row_spec(c(3,5,7), color = 'white', background = 'purple') %>% 
   kable_styling()
 
 

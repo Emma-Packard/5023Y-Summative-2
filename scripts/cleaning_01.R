@@ -2,6 +2,7 @@
 library(tidyverse) # a range of helpful packages
 library(janitor)# helps to format the data
 library(kableExtra)#nice tables
+library(scales)# scales p values
 library(patchwork)# big chart, with extras
 #_________________________________________----
 
