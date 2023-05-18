@@ -128,7 +128,9 @@ starting_mass_marginal+weight_starting_scatterplot+change_in_weight_marginal+ # 
 weight_starting_scatterplot2 <- 
   ggplot(filter_cricket, 
          aes(x= song_week, 
-             y= change_in_weight)) +
+             y= change_in_weight, 
+             colour= factor(diet))) +
+  theme(legend.position = "none")+# removes the fig legend
   geom_point()
 
 change_marginal <- 
@@ -141,7 +143,9 @@ change_marginal <-
     bandwidth = 175))+
   geom_density()+
   theme_void()+
-  coord_flip()
+  coord_flip()+
+  scale_alpha(guide = 'none') # removes the alpha legend  
+
 
 song_marginal <- 
 filter_cricket %>% 
@@ -152,7 +156,9 @@ filter_cricket %>%
     alpha = 0.1,
     bandwidth = 175))+
   geom_density()+
-  theme_void()
+  theme_void()+
+  theme(legend.position = "none")# removes the fig legend
+
   
 
 layout <- "
@@ -161,5 +167,8 @@ BBC
 BBC"
 
 song_marginal+weight_starting_scatterplot2+change_marginal+ # order of plots is important
-  plot_layout(design=layout)
+plot_layout(design=layout)
+
+# change labs, including factor(diet)
+# plot themes 
 
