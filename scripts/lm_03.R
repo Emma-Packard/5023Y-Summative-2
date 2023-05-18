@@ -125,11 +125,11 @@ starting_mass_marginal+weight_starting_scatterplot+change_in_weight_marginal+ # 
 
 #_________________
 
-no_0 <- filter_cricket %>% 
-  filter(song_week>0)# removed 0s for this plot as a test
+#no_0 <- filter_cricket %>% 
+#  filter(song_week>0)# removed 0s for this plot as a test
 
 weight_starting_scatterplot2 <- 
-ggplot(no_0, 
+ggplot(filter_cricket, 
          aes(x= song_week, 
              y= change_in_weight, 
              colour= factor(diet))) +
