@@ -125,11 +125,41 @@ starting_mass_marginal+weight_starting_scatterplot+change_in_weight_marginal+ # 
 
 #_________________
 
-diet_marginal <- # density plot that is at the side of the plot
+weight_starting_scatterplot2 <- 
+  ggplot(filter_cricket, 
+         aes(x= song_week, 
+             y= change_in_weight)) +
+  geom_point()
+
+change_marginal <- 
   filter_cricket %>% 
-  ggplot()+
-  geom_density(aes(x=change_in_weight, y= diet),colour = factor(diet))+
+  ggplot(aes(
+    x=change_in_weight,
+    colour = factor(diet), 
+    fill= factor(diet), 
+    alpha = 0.1,
+    bandwidth = 175))+
+  geom_density()+
   theme_void()+
   coord_flip()
 
+song_marginal <- 
+filter_cricket %>% 
+  ggplot(aes(
+    x=song_week,
+    colour = factor(diet), 
+    fill= factor(diet), 
+    alpha = 0.1,
+    bandwidth = 175))+
+  geom_density()+
+  theme_void()
+  
+
+layout <- "
+AA#
+BBC
+BBC"
+
+song_marginal+weight_starting_scatterplot2+change_marginal+ # order of plots is important
+  plot_layout(design=layout)
 

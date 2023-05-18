@@ -4,6 +4,7 @@ library(janitor)# helps to format the data
 library(kableExtra)#nice tables
 library(scales)# scales p values
 library(patchwork)# big chart, with extras
+library(ggridges)# adds extra ridges to plots
 #_________________________________________----
 
 #💾 IMPORTING DATA ----
