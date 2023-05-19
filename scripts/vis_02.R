@@ -1,8 +1,25 @@
 source("scripts/cleaning_01.R")
-
+#_______________________________________----
 # 📊 Exploration Plots ----
 
 GGally::ggpairs(filter_cricket)# everything plot
+
+
+ggplot(filter_cricket, 
+       aes(x= pronotum, 
+           y= change_in_weight)) +
+  geom_point()
+# shows a positive correlation 
+
+# scatter plot ----
+
+ggplot(filter_cricket, 
+       aes(x= song_week, 
+           y= change_in_weight,
+           fill= starting_mass,
+           colour= starting_mass)) +
+  geom_point()
+# shows a positive correlation
 
 # how diet affects change in weight ----
 ggplot(filter_cricket, 

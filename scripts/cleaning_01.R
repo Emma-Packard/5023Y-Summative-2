@@ -66,30 +66,6 @@ filter_cricket %>%
 
 filter_cricket <- rename(filter_cricket, "starting_mass"="mass0", "change_in_weight" = "delta_smi", "song_week"="song_week1")
 
-#_______________________________________----
-# 📊 Exploration Plots ----
-
-GGally::ggpairs(filter_cricket)# everything plot
-
-
-ggplot(filter_cricket, 
-       aes(x= pronotum, 
-           y= change_in_weight)) +
-  geom_point()
-# shows a positive correlation 
-
-# scatter plot ----
-
-ggplot(filter_cricket, 
-       aes(x= song_week, 
-           y= change_in_weight,
-           fill= starting_mass,
-           colour= starting_mass)) +
-  geom_point()
-# shows a positive correlation
-
-
-#_____________________________________----
 
 
 tapply(filter_cricket$change_in_weight,filter_cricket$diet,mean)
