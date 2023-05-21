@@ -61,7 +61,8 @@ lsmodel4<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + die
 
 
 lsmodel4 %>% 
-  broom::tidy(conf.int = F)#add 95% conf intervals
+  broom::tidy(conf.int = TRUE)# adds confidance intervals
+
 
 pdf("my_plots_new.pdf")
 performance::check_model(lsmodel4)# seeing the fit of the model
@@ -70,29 +71,36 @@ dev.off()#
 drop1(lsmodel4, test = "F")# can look at the AIC 
 
 summary(lsmodel4)#summary of the model
-
+  
 #_____________________----
 
 #statical tests
 
 anova(lsmodel4)
+
 # Df = 1
 # f = high amounts of variance in diet, song and pronotum 
 # 
+# 
+# lsmodel4 %>% 
+broom::tidy(conf.int = TRUE)# adds confidance intervals
+
 summary_table <- 
-broom::tidy(lsmodel4) %>% 
+lsmodel4 %>% 
+broom::tidy(conf.int = TRUE) %>% 
 mutate(p.value = scales::pvalue(p.value)) %>% # changes the pvalues <0.001
   rename("Term"="term",
          "Coefficient" = "estimate", # changing the names to be better
          "Standard Error" = "std.error",
          "t" = "statistic",
-         "p value" = "p.value") %>% 
+         "p value" = "p.value",
+          "Conf low" = "conf.low",
+         "Conf high" = "conf.high") %>% 
   mutate(across(c(Coefficient: t), round,5)) %>% 
   kbl() %>% 
   row_spec(c(3,5,7), color = 'white', background = 'purple') %>% 
   kable_styling()
-
+# tidy the graph names
   
-
 
 
