@@ -85,7 +85,7 @@ anova(lsmodel4)
 # lsmodel4 %>% 
 broom::tidy(conf.int = TRUE)# adds confidance intervals
 
-summary_table <- 
+summary_table1 <- 
 lsmodel4 %>% 
 broom::tidy(conf.int = TRUE) %>% 
 mutate(p.value = scales::pvalue(p.value)) %>% # changes the pvalues <0.001
