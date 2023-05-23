@@ -48,20 +48,24 @@ ggplot(filter_cricket,
   labs(x = "Sexaul signalling",
        y = "Weight change (g)",
        caption = "test")
+
+
 #_________________________----
 #start/change ✔ ----
+library(ggExtra)
 
 start_scatter<- 
   ggplot(filter_cricket, 
          aes(x= starting_mass, 
              y= change_in_weight))+ 
   theme_classic()+ # theme 
-  geom_point(colour="#FF3395")+
+  geom_point(colour="#ff77bc")+
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+
   labs(x = "Starting mass (g)",
        y = "Weight change (g)",
        caption = "test")
 
+scatter<- ggMarginal(start_scatter, type="histogram", colour="#ff48a5", fill = "#ff77bc")
 #________________----
 #start/change/diet_NOT----
 ##start/change/diet/scatter ----
