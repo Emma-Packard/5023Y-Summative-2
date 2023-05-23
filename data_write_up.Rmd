@@ -21,4 +21,11 @@ and add graphs where needed
 ```{r plot_ep, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 summary_table1
 
+
+```
+
+```{r plot_song, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+
+song_change_diet
+
 ```

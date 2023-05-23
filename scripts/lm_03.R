@@ -59,9 +59,8 @@ summary(lsmodel3)
 # everything in this model is significant
 lsmodel4<- lm(change_in_weight~diet + starting_mass + song_week + pronotum + diet:song_week + diet:pronotum + song_week:pronotum, data = filter_cricket)
 
-
 lsmodel4 %>% 
-  broom::tidy(conf.int = TRUE)# adds confidance intervals
+broom::tidy(conf.int = TRUE)# adds confidance intervals
 
 
 pdf("my_plots_new.pdf")
@@ -82,7 +81,7 @@ anova(lsmodel4)
 # f = high amounts of variance in diet, song and pronotum 
 # 
 # 
-# lsmodel4 %>% 
+lsmodel4 %>% 
 broom::tidy(conf.int = TRUE)# adds confidance intervals
 
 summary_table1 <- 

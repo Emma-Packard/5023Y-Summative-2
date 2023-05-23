@@ -4,7 +4,7 @@
 
 This is a summative assignment for the module BIO 5023Y - also called Data science for biologists. This solo assignment was completed during the second year of my BSC in Biological Sciences at the University of East Anglia. This report is based off a data set that studied the cost of singing in the decorated cricket (Gryllodes sigillatus); see below for more information
 
-## 📜Scripts 
+## 📜Scripts
 
 -   cleaning_01 **→** importing data, data wrangling, renaming data varibles to meaningful names
 
@@ -50,9 +50,9 @@ The data surrounds multiple variables that can be a proxy for the cost of the de
 reference link ---\>
 
 | Variable         | Definition                                                                                                 |
-|--------------|----------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | Change_in_weight | Change in weight(g)                                                                                        |
 | Diet             | Percentage nutritional content of the food the animal was fed                                              |
 | Song_week        | The total amount of time the cricket spent singing in the first week of the experiment                     |
-| starting_mass    | Mass(g) at start of experiment                                                                             |
+| Starting_mass    | Mass(g) at start of experiment                                                                             |
 | Pronotum         | Size(mm) The pronotum is a prominent plate that covers the thorax and can be used as a proxy for body size |
