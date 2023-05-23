@@ -50,4 +50,11 @@ weight_starting_scatterplot1 + change_marginal
 
 ```
 
+```{r song_pronotum, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+
+weight_pronotum_song_scatter
+
+
+
+```
 

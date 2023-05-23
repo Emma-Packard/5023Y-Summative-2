@@ -7,18 +7,21 @@ GGally::ggpairs(filter_cricket)# everything plot
 #___________________________----
 
 # basic scatter plot 
-# change_in_weight/pronotum/sing----
+# change_in_weight/pronotum/sing ✔ ----
 
 weight_pronotum_song_scatter <-  
 ggplot(filter_cricket, 
        aes(x= pronotum, 
            y= change_in_weight,
-           colour=song_week)) +
+           colour=song_week))+
   geom_point()+
+  scale_color_gradient(low = "#AF7AC5", high = "#E74C3C", name ="Sexaul signalling (Sec)")+ 
+  geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour="black")+
+  theme_classic()+
   labs(x = "Pronotum size (mm)",
        y = "Weight change (g)",
        caption = "test")
-
+ 
 # shows a positive correlation 
 #__________________________----
 
@@ -158,11 +161,12 @@ weight_starting_scatterplot1 <- # creating a name
          aes(x= song_week, 
              y= change_in_weight, 
              colour= factor(diet))) +
+  scale_color_discrete(name = "Diet Percent")+# change legend title
   theme_classic()+
   theme(legend.position = "top")+# removes the fig legend
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
-  labs(x = "Sexaul signalling",
+  labs(x = "Sexaul signalling (Sec)",
        y = "Weight change (g)",
        caption = "test")
 
