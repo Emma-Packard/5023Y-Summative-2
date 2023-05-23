@@ -1,11 +1,11 @@
 ---
-title: "data_write_up"
+title: "Cricket Weight"
 output: pdf_document
 date: "2023-05-14"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 ```
 
@@ -14,11 +14,14 @@ Data science
 ```{r importing script, include=FALSE}
 source("scripts/lm_03.R")
 ```
-insert work here 
-and add graphs where needed 
-
 
 ```{r plot_ep, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+
+start_scatter
+
+```
+
+```{r table, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 summary_table1
 
 
@@ -27,5 +30,10 @@ summary_table1
 ```{r plot_song, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 
 song_change_diet
+
+```
+```{r plot_pronotum, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+
+facet_pronotum_diet
 
 ```

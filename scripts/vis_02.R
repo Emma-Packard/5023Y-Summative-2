@@ -4,7 +4,6 @@ source("scripts/cleaning_01.R")
 # 📊 Exploration Plots ----
 
 GGally::ggpairs(filter_cricket)# everything plot
-glimpse(filter_cricket)
 #___________________________----
 
 # basic scatter plot 
@@ -21,7 +20,7 @@ ggplot(filter_cricket,
 # shows a positive correlation 
 #__________________________----
 
-#change in weight and diet ----
+#change in weight/song/diet ----
 
 ##change/ song / diet/facet ----
 filter_cricket %>% 
@@ -49,13 +48,22 @@ ggplot(filter_cricket,
   labs(x = "Sexaul signalling",
        y = "Weight change (g)",
        caption = "test")
-
-
-
-
 #_________________________----
+#start/change ✔ ----
 
-#start/change/diet----
+start_scatter<- 
+  ggplot(filter_cricket, 
+         aes(x= starting_mass, 
+             y= change_in_weight))+ 
+  theme_classic()+ # theme 
+  geom_point(colour="#FF3395")+
+  geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+
+  labs(x = "Starting mass (g)",
+       y = "Weight change (g)",
+       caption = "test")
+
+#________________----
+#start/change/diet_NOT----
 ##start/change/diet/scatter ----
 scatter_starting <- 
 filter_cricket %>% 
@@ -86,14 +94,33 @@ ggplot(filter_cricket,
 #_________________________----
 #change/pronotum/diet----
 ##change/pronotum/diet/facet ----
-
-filter_cricket %>% 
-  ggplot(aes(x= pronotum,
+pronotum_diet <- 
+  filter_cricket %>% 
+  ggplot(aes(x=pronotum,
              y=change_in_weight,
-             colour = factor(diet)))+
+             colour = factor(diet)))+ # diet as 
   geom_point()+
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+ # adding a line of best fit
+  theme_classic()+ # theme 
+  labs(x = "Pronotum Size",
+       y = "Weight change (g)",
+       caption = "test")
+
+##change/pronotum/diet/facet_wrap ✔ ----
+facet_pronotum_diet <- 
+  ggplot(filter_cricket, 
+         aes(x= pronotum, 
+             y= change_in_weight, 
+             colour= factor(diet))) + # separated for each diet percentage 
+  theme_classic()+ # theme 
+  theme(legend.position = "none")+# removes the fig legend
+  geom_point()+
+  facet_wrap(~ diet)+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
-  
+  labs(x = "Pronotum Size (mm)",
+       y = "Weight change (g)",
+       caption = "test")
+
 
 # increase in weight for the higher food percentages, the smaller the pronotum the bigger increase in weight
 
@@ -101,6 +128,7 @@ filter_cricket %>%
 
 # starting mass/change/diet ----
 ##starting mass/change/diet/facet ----
+
 
 filter_cricket %>% 
   ggplot(aes(x= starting_mass,
