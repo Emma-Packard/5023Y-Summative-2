@@ -116,7 +116,7 @@ facet_pronotum_diet <-
   theme(legend.position = "none")+# removes the fig legend
   geom_point()+
   facet_wrap(~ diet)+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
+  geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+
   labs(x = "Pronotum Size (mm)",
        y = "Weight change (g)",
        caption = "test")
@@ -150,23 +150,24 @@ weight_starting_scatterplot2 <- # creating a name
              y= change_in_weight, 
              colour= factor(diet))) +
   theme_classic()+
-  theme(legend.position = "none")+# removes the fig legend
+  theme(legend.position = "top")+# removes the fig legend
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
 
 
-change_marginal <- 
-  filter_cricket %>% 
-  ggplot(aes(
-    x=change_in_weight,
-    colour = factor(diet), 
-    fill= factor(diet), 
-    alpha = 0.1,
-    bandwidth = 175))+
-  geom_density()+
-  theme_void()+
-  coord_flip()+
-  scale_alpha(guide = 'none') # removes the alpha legend  
+  change_marginal <- 
+      filter_cricket %>% 
+      ggplot(aes(
+        x=change_in_weight,
+        colour = factor(diet), 
+        fill= factor(diet), 
+        alpha = 0.1,
+        bandwidth = 175))+
+      geom_density()+
+      theme_void()+
+      coord_flip()+
+      theme(legend.position = "none")
+        
 
 
 song_marginal <- 
@@ -189,9 +190,12 @@ BBC
 BBC"
 
 
+weight_starting_scatterplot2 + change_marginal
+
 song_marginal+weight_starting_scatterplot2+change_marginal+ # order of plots is important
-  plot_layout(design=layout)
+plot_layout(design=layout)
 
 # change labs, including factor(diet)
 # plot themes /
 
+#_____________________----
