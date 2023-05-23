@@ -3,8 +3,8 @@ library(tidyverse) # a range of helpful packages
 library(janitor)# helps to format the data
 library(kableExtra)#nice tables
 library(scales)# scales p values
-library(patchwork)# big chart, with extras
-library(ggridges)# adds extra ridges to plots
+library(ggExtra)# lets you add marginal density plots or histograms to ggplot2
+library(patchwork)# allows for plots to be knitted together
 #_________________________________________----
 
 #💾 IMPORTING DATA ----

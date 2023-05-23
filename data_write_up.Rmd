@@ -17,8 +17,7 @@ source("scripts/lm_03.R")
 
 ```{r plot_ep, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 
-start_scatter
-
+scatter
 ```
 
 ```{r table, echo= FALSE, fig.asp = 0.6, fig.width= 6}
@@ -46,14 +45,9 @@ njkhkj
 ```{r plot_mega2, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 
 
-weight_starting_scatterplot2 + change_marginal
+weight_starting_scatterplot1 + change_marginal
 
 
 ```
 
-```{r plot_mega3, echo= FALSE, fig.asp = 0.6, fig.width= 6}
 
-
-scatter
-
-```

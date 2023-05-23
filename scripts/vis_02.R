@@ -7,16 +7,18 @@ GGally::ggpairs(filter_cricket)# everything plot
 #___________________________----
 
 # basic scatter plot 
-# change_in_weight/pronotum----
+# change_in_weight/pronotum/sing----
 
+weight_pronotum_song_scatter <-  
 ggplot(filter_cricket, 
        aes(x= pronotum, 
-           y= change_in_weight)) +
+           y= change_in_weight,
+           colour=song_week)) +
   geom_point()+
   labs(x = "Pronotum size (mm)",
        y = "Weight change (g)",
        caption = "test")
-   
+
 # shows a positive correlation 
 #__________________________----
 
@@ -52,7 +54,7 @@ ggplot(filter_cricket,
 
 #_________________________----
 #start/change ✔ ----
-library(ggExtra)
+
 
 start_scatter<- 
   ggplot(filter_cricket, 
@@ -66,6 +68,8 @@ start_scatter<-
        caption = "test")
 
 scatter<- ggMarginal(start_scatter, type="histogram", colour="#ff48a5", fill = "#ff77bc")
+
+
 #________________----
 #start/change/diet_NOT----
 ##start/change/diet/scatter ----
@@ -145,10 +149,11 @@ filter_cricket %>%
 
 #_________________ ----
 
-# mega plot-song/changet/diet ----
+# mega plot-song/changet/diet ✔ ----
 # #dentsity plot and scatter plot
 
-weight_starting_scatterplot2 <- # creating a name 
+
+weight_starting_scatterplot1 <- # creating a name 
   ggplot(filter_cricket, 
          aes(x= song_week, 
              y= change_in_weight, 
@@ -156,7 +161,10 @@ weight_starting_scatterplot2 <- # creating a name
   theme_classic()+
   theme(legend.position = "top")+# removes the fig legend
   geom_point()+
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
+  labs(x = "Sexaul signalling",
+       y = "Weight change (g)",
+       caption = "test")
 
 
   change_marginal <- 
@@ -173,31 +181,9 @@ weight_starting_scatterplot2 <- # creating a name
       theme(legend.position = "none")
         
 
-
-song_marginal <- 
-  filter_cricket %>% 
-  ggplot(aes(
-    x=song_week,
-    colour = factor(diet), 
-    fill= factor(diet), 
-    alpha = 0.1,
-    bandwidth = 175))+
-  geom_density()+
-  theme_void()+
-  theme(legend.position = "none")# removes the fig legend
+weight_starting_scatterplot1+change_marginal # order of the plots
 
 
-
-layout <- "
-AA#
-BBC
-BBC"
-
-
-weight_starting_scatterplot2 + change_marginal
-
-song_marginal+weight_starting_scatterplot2+change_marginal+ # order of plots is important
-plot_layout(design=layout)
 
 # change labs, including factor(diet)
 # plot themes /

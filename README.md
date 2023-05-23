@@ -26,9 +26,9 @@ Packages needed -
 
 -   scales **→** scales p values
 
--   patchwork **→** allows plots to be put together in the same plot
+-   ggExtra → lets you add marginal density plots or histograms to ggplot2
 
--   ggridges **→** extra density plots
+-   patchwork → allows for plots to be knitted together
 
 ## 👩‍💻Project description
 
@@ -50,7 +50,7 @@ The data surrounds multiple variables that can be a proxy for the cost of the de
 reference link ---\>
 
 | Variable         | Definition                                                                                                 |
-|-----------------|-------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | Change_in_weight | Change in weight(g)                                                                                        |
 | Diet             | Percentage nutritional content of the food the animal was fed                                              |
 | Song_week        | The total amount of time the cricket spent singing in the first week of the experiment                     |
