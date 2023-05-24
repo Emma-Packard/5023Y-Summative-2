@@ -15,7 +15,7 @@ ggplot(filter_cricket,
            y= change_in_weight,
            colour=song_week))+
   geom_point()+
-  scale_color_gradient(low = "#AF7AC5", high = "#E74C3C", name ="Sexaul signalling (Sec)")+ 
+  scale_color_gradient(low = "#AF7AC5", high = "#E74C3C", name ="Sexual signalling (s)")+ 
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour="black")+
   theme_classic()+
   labs(x = "Pronotum size (mm)",
