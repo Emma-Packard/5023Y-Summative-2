@@ -166,7 +166,7 @@ weight_starting_scatterplot1 <- # creating a name
   theme(legend.position = "top")+# removes the fig legend
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
-  labs(x = "Sexaul signalling (Sec)",
+  labs(x = "Sexaul signalling (s)",
        y = "Weight change (g)",
        caption = "test")
 
@@ -187,9 +187,3 @@ weight_starting_scatterplot1 <- # creating a name
 
 weight_starting_scatterplot1+change_marginal # order of the plots
 
-
-
-# change labs, including factor(diet)
-# plot themes /
-
-#_____________________----

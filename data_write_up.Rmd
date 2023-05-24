@@ -26,7 +26,7 @@ summary_table1
 
 ```
 
-```{r plot_song, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+```{r plot_song, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 
 song_change_diet
 
@@ -34,7 +34,7 @@ song_change_diet
 
 dnfdonkllllllllllll
 
-```{r plot_pronotum, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+```{r plot_pronotum, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 
 facet_pronotum_diet
 
@@ -42,7 +42,7 @@ facet_pronotum_diet
 
 njkhkj
 
-```{r plot_mega2, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+```{r plot_mega2, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 
 
 weight_starting_scatterplot1 + change_marginal
@@ -50,7 +50,7 @@ weight_starting_scatterplot1 + change_marginal
 
 ```
 
-```{r song_pronotum, echo= FALSE, fig.asp = 0.6, fig.width= 6}
+```{r song_pronotum, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 
 weight_pronotum_song_scatter
 
