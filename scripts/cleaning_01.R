@@ -43,9 +43,7 @@ summary_na <- cricket %>%
 cricket%>% 
   summarise(min=min(song_week1, na.rm=TRUE),# seeing the min
             max=max(song_week1, na.rm=TRUE)) # seeing the max
-## can't be a minus ---- fliture /
-
-
+## can't be a minus ---- fliter /
 
 # filtering out NA's/ minus 
 
