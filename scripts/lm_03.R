@@ -98,10 +98,10 @@ mutate(p.value = scales::pvalue(p.value)) %>% # changes the pvalues <0.001
           "lower.CI" = "conf.low",
          "upper.CI" = "conf.high")%>%
   mutate(across(c(Coefficient: t), round,5)) %>% 
-  kbl(caption = "test") %>% 
-  row_spec(c(3,5,7), color = 'white', background = 'purple') %>% 
-  row_spec(c(0), italic = TRUE, align = "c") %>% 
-  kable_styling() %>% 
-  labs(caption = "test")
+  kbl() %>% 
+  kable_styling(latex_options = "hold_position") %>% # to stop the table moving in markdown!!!!
+  row_spec(c(3,5,7), color = 'white', background = 'purple') %>% # the most sig highlighted in colour
+  row_spec(c(0), italic = TRUE, align = "c") %>% # titles italic
+  kable_styling() # fancy style
 
   

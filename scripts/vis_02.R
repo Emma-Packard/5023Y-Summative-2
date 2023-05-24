@@ -53,8 +53,7 @@ start_scatter<-
   geom_point(colour="#ff77bc")+
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+ #colour of line
   labs(x = "Starting mass (g)", # labs 
-       y = "Weight change (g)",
-       caption = "test")
+       y = "Weight change (g)")
 
 scatter<- ggMarginal(start_scatter, type="histogram", colour="#ff48a5", fill = "#ff77bc") # adds the marginal histograms at the side of the scatter plot
 
@@ -90,14 +89,13 @@ weight_starting_scatterplot1 <- # scatter plot also the main plot
          aes(x= song_week, 
              y= change_in_weight, 
              colour= factor(diet))) +
-  scale_color_discrete(name = "Diet Percent")+# change legend title
+  scale_color_discrete(name = "Diet Percentage")+# change legend title
   theme_classic()+ # theme
   theme(legend.position = "top")+# removes the fig legend
   geom_point()+
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE)+
   labs(x = "Sexaul signalling (s)",
-       y = "Weight change (g)",
-       caption = "test")
+       y = "Weight change (g)")
 
 
   change_marginal <- 
