@@ -11,38 +11,76 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 source("scripts/lm_03.R")
 ```
 
+Feedback Adjustment - Dyslexia and Dyscalculia
+
+<p> </p>
+
+100355529
+
+<p> </p>
+
 [***The cost of the amount of sexual signalling in the decorated cricket***]{.underline}
+
+<p> </p>
 
 [**Introduction**]{.underline}
 
-Species such as insects, birds and mammals can create acoustic signals which convey different messages for different purposes. They can be for sexual signalling, species recognition and defence in protecting resources. These acoustic signals can be very powerful and can indirectly tell another the condition, or the location, of an individual (Wilkins, Seddon and Safran, 2013). In the decorated cricket, Gryllodes sigillatus, the male creates sound pulses. The cricket does this by scissoring its forewings and drawing a scraper-like section on one wing, across the toothed file, on the other. This action of acoustic communication is used as a mode of sexual signalling to the female (Otte, 1992, Bentley and Hoy, 1974). This action can communicate the quality of the male's genes to the female. Due to the high energy cost of the act, males of a lower condition would struggle to produce a high-quality and frequent signal (Tolle and Wagner, 2011, Gray and Eckhardt, 2001).
+<p> </p>
 
-The weight change of the cricket will be different at the different diet levels. The higher the nutritional content of the diet level, the greater the increase in weight (WAGNER and HOBACK, 1999). Larger pronotum size will cause an increase in weight on higher percentage diets (Kell et al, 2014, Newcombe, et al 2015). Larger crickets ( with larger start weight and pronotum size) will be more resistant to changes in weight (Kell et al, 2014). However, this body condition measure will not affect how much the crickets engage with acoustic signalling (WAGNER and HOBACK, 1999, Gray and Eckhardt, 2001). Even though acoustic signalling is seen to be costly, it will not change the weight of the cricket (Hunt, et al 2004).
+Various species such as insects, can create acoustic signals which convey different messages for different purposes. They can be for sexual signalling, species recognition and resource defence. These acoustic signals can be powerful and can indirectly communicate an individual's condition or location (Wilkins, Seddon and Safran, 2013). The male Gryllodes sigillatus (decorated cricket) creates sound pulses by scissoring its forewings and drawing a scraper-like section across a toothed file on the other wing. This action of acoustic communication is used as a mode of sexual signalling to the female, signalling the quality of the males genes (Otte, 1992, Bentley and Hoy, 1974). Indeed, the act of signalling requires high energy, therefore, males of a lower condition tend to struggle to produce a high-quality and frequent signal (Tolle and Wagner, 2011, Gray and Eckhardt, 2001).
+
+The weight change of the cricket will be different depending on diet levels. The higher the nutritional content of the diet level, the greater the increase in weight (Wagner and Hoback, 1999). Larger pronotum size will cause an increase in weight on higher percentage diets (Kell et al, 2014, Newcombe, et al 2015). Larger crickets (greater start weight and pronotum) will be more resistant to changes in weight (Kell et al, 2014). However, this body condition measure will not affect how much the crickets engage with acoustic signalling (Wagner and Hoback, 1999, Gray and Eckhardt, 2001). Even though acoustic signalling is costly, it will not change the weight of the cricket (Hunt, et al 2004).
+
+<p> </p>
 
 [**Analysis**]{.underline}
 
-An ordinary least squares model was produced to investigate the energic costs of sexual signalling in the adult male Gryllodes sigillatus. This was represented by the crickets' weight change over the study week in a factorial design, with diet, starting mass, amount of sexual signalling, pronotum size, and categorical predictors included. The final model also included three sets of covariates: the diet/amount of sexual signalling, the diet/pronotum size, and the amount of sexual signalling/pronotum size. The analyses and cleaning of the data took place in R version 4.2.3, using the tidyverse packages (Wickham et al., 2019) and the Janitor package (Firke, 2021). The original data set needed to be filtered through to remove incorrect values in the amount of sexual signalling, which had negative/missing values, in the pronotum and the weight change during the week of study. All these changes were put into the new data set, 'filtered cricket'. After the data was properly cleaned, some data visualisations surrounding the change in weight were created to explore the spread of the data, trends, or correlations. Some other packages were used, such as patchwork (Pedersen T, 2022), It combines multiple plots to illustrate the data better; ggExtra (Attali and Baker, 2022) adds marginal histograms to ggplot2. The first model was based on past literature and data visualisations. This model included many interaction terms; the only one not included was the starting mass and the diet over the week, as they did not seem relevant to the question. To make the most parsimonious model, a step-down procedure was then taken to remove the variables that were not statistically significant or had an irregular AIC from the intercept. After the final model, summary tables were completed using the packages Broom Tidy (Robinson et al., 2022) and Kable (Zhu 2020). An extra package called 'Scales' (Wickham H, Seidel D, 2022) formatted the p Values. An ANOVA was also completed to gain a greater depth of analysis furthermore.
+<p> </p>
+
+An ordinary least squares model was produced to investigate the energic costs of sexual signalling in the adult male Gryllodes sigillatus. This was represented by the crickets' weight change over the study week in a factorial design, with diet, starting mass, amount of sexual signalling, pronotum size, and categorical predictors included. The final model also included three sets of covariates: the diet/amount of sexual signalling, the diet/pronotum size, and the amount of sexual signalling/pronotum size. The analyses and cleaning of the data took place in R version 4.2.3, using the tidyverse packages (Wickham et al., 2019) and the Janitor package (Firke, 2021). The original data set was filtered to remove incorrect values in the amount of sexual signalling, which had negative/missing values, in the pronotum and the weight change during the study week. All these changes were put into the new data set, 'filtered cricket'. After the data was properly cleaned, some data visualisations surrounding the change in weight were created to explore the spread of the data, trends, or correlations. Some other packages were used, such as patchwork (Pedersen T, 2022), It combines multiple plots to illustrate the data better; ggExtra (Attali and Baker, 2022) adds marginal histograms to ggplot2. The first model was based on past literature and data visualisations. This model included many interaction terms; the only one not included was the starting mass and the diet over the week, as this was not relevant. To make the most parsimonious model, a step-down procedure was then taken to remove the variables that were not statistically significant or had an irregular AIC from the intercept. After the final model, summary tables were completed using the packages Broom Tidy (Robinson et al., 2022) and Kable (Zhu 2020). An extra package called 'Scales' (Wickham H, Seidel D, 2022) formatted the p Values. An ANOVA was used to gain a greater depth of analysis further.
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
 
 [**Results and Discussion**]{.underline}
 
-Condition of the crickets (pronotum and starting mass) It was hypothesised that the larger the starting mass of the cricket, the more resistant the cricket would be to changes in their weight, and with the lower starting mass of the cricket, the greater the increase in their weight. Starting mass is a highly significant main effect (Linear model F1,529 =19.9, P \<0.001) but no evidence was found to conclude that the greater the starting mass of the cricket, the more resistant they are to changes in weight; the opposite was actually found. For every gram increase in the cricket's starting mass, the cricket lost -0.55296g [95% CI: -0.6227919 - -0.4831234], shown in Figure one and table one. The starting mass of the male is often used as a proxy of the male's quality, as larger males are seen to be chosen more by the females, so it was assumed that this would reduce the risk of losing weight as they resist it (Simmons, 1995). However, it was found by Chown and Gaston in 2010, that it there is a trade-off where the fitness advantage of a larger size is out weighted and can actually reduce the fitness of the next generation (Chown and Gaston, 2010).
+<p> </p>
+
+[**Condition of the crickets (pronotum and starting mass)**]{.underline}
+
+<p> </p>
+
+It was hypothesised that the larger the starting mass of the cricket, the more resistant the cricket would be to changes in their weight, and with the lower starting mass of the cricket, the greater the increase in their weight. Starting mass is a highly significant main effect (Linear model F1,529 =19.9, P \<0.001). There was not enough evidence to support the above hypothesis. For every gram increase in the cricket's starting mass, the cricket lost -0.55296g [95% CI: -0.6227919 - -0.4831234], illustrated in Figure and Table one. The starting mass of the male is often used as a proxy of the male's quality due to females having a preferential choice of selecting larger males. Moreover, Chown and Gaston (2010) found a trade-off where the fitness advantage of a larger size is out weighted and can actually reduce the fitness of the next generation.
+
+<p> </p>
 
 ```{r plot_starting_mass, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 scatter
 
 ```
 
-***Figure 1:** Gryllodes sigillatus over the first week of the study, the crickets with the higher starting masses lost more weight. This indicates that every 1-gram increase in the starting mass, causes a -0.55296g [95% CI: -0.6227919 - -0.4831234] loss in the cricket's weight. The line is the regression slope with a 95% confidence interval, and the dots are the individual data points. The marginal plots are histograms of the distribution of starting mass (top), and weight change (right).*
+**Figure 1:** Gryllodes sigillatus over the first week of the study, the crickets with the higher starting masses lost more weight. This indicates that every 1-gram increase in the starting mass, causes a -0.55296g [95% CI: -0.6227919 - -0.4831234] loss in the cricket's weight. The line is the regression slope with a 95% confidence interval, and the dots are the individual data points. The marginal plots are histograms of the distribution of starting mass (top), and weight change (right).\
 
-***Table 1:** This shows outputs from the linear model of Gryllodes sigillatus. It includes the confidence intervals, high and low, p-value, t-value, standard error and coefficient. The highly significant ones are highlighted in pink.*
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+**Table 1:** This shows outputs from the linear model of Gryllodes sigillatus. It includes the confidence intervals, high and low, p-value, t-value, standard error and coefficient. The highly significant ones are highlighted in pink.
 
 ```{r table_1, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 summary_table1
 ```
 
-It was hypothesised that the larger the pronotum, the greater the resistance to weight loss the cricket would be. Pronotum as a main interaction term is highly significant (Linear model F1,529 = 19.9, P\<0.001); for every pronotum millimetre increase in weight, the amount of weight gained will be 0.05698g [95% CI: 0.0288108 - 0.0851461], which can be seen in table 1. Due to the interactions with other variables, the main effect of the pronotum cannot be properly investigated without those interactions mentioned later. These results show that this hypothesis is true due to this evidence. As the size of the pronotum increases, so does the weight of the cricket this can be seen in figure 2. It was also found in a study by Kell in 2014, that pronotum and weight are strongly positively correlated together (Kell et al, 2014).
+<p> </p>
 
-It was hypothesised that pronotum size would not impact the amount of sexual signalling. But the amount that the crickets sexually signalled and interacted with the size of the pronotum is significant (Linear model F1,529 =4.8, P 0.029), with an increase in pronotum size in millimetres, and an increase in the amount of sexual signalling increased by a second, would cause an increase in the weight of the cricket by 0.003558g [95% CI: 0.0003700 - 0.0067814] which can be seen in figure 2 and table 1. However, there was no evidence in the literature finding this result. Most of it reads that there is no significant interaction effect between the two variables and their weight (Wagner and Hoback, 1999, Gray and Eckhardt, 2001).
+It was hypothesised that the larger the pronotum, the greater the resistance to weight loss the cricket would be. Pronotum as a main interaction term is highly significant (Linear model F1,529 = 19.9, P\<0.001); for every pronotum millimetre increase in weight, the amount of weight gained will be 0.05698g [95% CI: 0.0288108 - 0.0851461], (seen in table 1). Due to the interactions with other variables, the main effect of the pronotum cannot be properly investigated without those interactions mentioned later. These results show that this hypothesis is true due to this evidence. As the size of the pronotum increases, so does the weight of the cricket (**Figure 2)**. Indeed, Kell et al (2014) found that pronotum and weight are strongly positively correlated together.
+
+It was hypothesised that pronotum size would not impact the amount of sexual signalling. But the amount that the crickets sexually signalled and interacted with the size of the pronotum is significant (Linear model F1,529 =4.8, P 0.029), with an increase in pronotum size in millimetres, and an increase in the amount of sexual signalling increased by a second, would cause an increase in the weight of the cricket by 0.003558g [95% CI: 0.0003700 - 0.0067814] (**Figure 2 , Table 1**). However, there was no evidence in the literature finding this result. Most of it reads that there is no significant interaction effect between the two variables and their weight (Wagner and Hoback, 1999, Gray and Eckhardt, 2001).
 
 ```{r plot_starting_pronotum, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 weight_pronotum_song_scatter
@@ -51,20 +89,30 @@ weight_pronotum_song_scatter
 
 ***Figure 2:** The Gryllodes sigillatus weight increases with pronotum size and differs when the pronotum interacts with sexual signalling. This indicates that with an increase in pronotum size in millimetres, and an increase in the amount of sexual signalling increased by a second. This caused an increase in the weight of the cricket by 0.003558g [95% CI: 0.0003700 - 0.0067814]. The regression line has 95% confidence intervals. The dots are individual data points, and the colour indicates the amount of sexual signalling, with red being the most and purple being the least.*
 
+<p> </p>
+
 [**The effects of different nutritional diet percentages and the interactions**]{.underline}
 
-The hypothesis was that the higher the nutritional content of the diet was, then the greater the increase in weight (Wagner and Hoback, 1999). There was a significant overall effect of the diet percentage with the change in weight in the male crickets (Linear model F1,529 = 325.2, P 0.003). Males on a higher diet percentage lost more weight, -0.00152g [95% Cl: -0.0025269 - -0.0005222] (seen in figure 1), with more weight lost, for every increase in the nutritional diet content. At this time there is not enough evidence to support this hypothesis. Another study supported this by carrying out experimental reductions in nutrient quality. This typically resulted in reductions in critical weight, which could possibly be due to insulin signalling (Chown and Gaston, 2010). Yet Wagner and Hoback in 1999, and Kelly, in 2014, found evidence that diet quality affects the body mass of crickets when controlling body size. However, the diet percentage as a main interaction term must be interpreted with caution as diet percentage also interacts with the amount of singing over the week, and the size of the pronotum. It was hypothesised that increasing the diet percentage would allow the crickets to signal additionally and gain more weight sexually. The interaction between diet and the amount of sexual signalling was significant (Linear model F1,529 = 7.2, P0.018). When the diet percentage was higher, crickets sexually signalled more, and the weight of the crickets increased by 0.00002g [95% Cl: 0.0000036 - 0.0000387], which can be seen in figure 3 and table 1. This result was also found by WAGNER and HOBACK in 1999. They found that crickets did not lose weight as they adjusted the amount of sexual signalling according to the nutritional diet that each of the crickets was fed, further backing up this hypothesis. Juxtaposing this, in a study by Hunt, et al in 2004, it was found that crickets on diets with higher percentages, would have increased sexual signals, and the more weight the crickets lost, contrasted with the crickets on the lower diet percentages. This also reduced the lifespan of the crickets (Hunt, et al 2004).
+<p> </p>
+
+The hypothesis was that the higher the nutritional content of the diet was, then the greater the increase in weight (Wagner and Hoback, 1999). There was a significant overall effect of the diet percentage with the change in weight in the male crickets (Linear model F1,529 = 325.2, P 0.003). Males on a higher diet percentage lost more weight, -0.00152g [95% Cl: -0.0025269 - -0.0005222] (**Figure 1**), with more weight lost, for every increase in the nutritional diet content. At this time there is not enough evidence to support this hypothesis. Another study supported this by carrying out experimental reductions in nutrient quality. This typically resulted in reductions in critical weight, which could possibly be due to insulin signalling (Chown and Gaston, 2010). Yet Wagner and Hoback in 1999, and Kelly, in 2014, found evidence that diet quality affects the body mass of crickets when controlling body size.
+
+However, the diet percentage as a main interaction term must be interpreted with caution as diet percentage also interacts with the amount of singing over the week, and the size of the pronotum. It was hypothesised that increasing the diet percentage would allow the crickets to signal additionally and gain more weight sexually. The interaction between diet and the amount of sexual signalling was significant (Linear model F1,529 = 7.2, P0.018). When the diet percentage was higher, crickets sexually signalled more, and the weight of the crickets increased by 0.00002g [95% Cl: 0.0000036 - 0.0000387], (**Figure 3, Table 1**). This result was also found by Wagner and Hoback in 1999. They found that crickets did not lose weight as they adjusted the amount of sexual signalling according to the nutritional diet that each of the crickets was fed, further backing up this hypothesis. Juxtaposing this, in a study by Hunt, et al in 2004, it was found that crickets on diets with higher percentages, would have increased sexual signals, and the more weight the crickets lost, contrasted with the crickets on the lower diet percentages. This also reduced the lifespan of the crickets (Hunt, et al 2004).
+
+<p> </p>
 
 ```{r plot_change, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 weight_starting_scatterplot1+change_marginal
 
 ```
 
-***Figure 3:** When the Gryllodes sigillatus diet percentage was higher, there was more sexual signalling, and also, their weight increased by 0.00002g [95% Cl: 0.0000036 - 0.0000387]. The colours on the graph represent the different diet percentages displayed in the key at the top. The regression lines show the trends in the different diet percentages; the dots are the individual data points. A marginal density plot for the distribution of the different weights, is separated by the different diet percentages, which can be seen to the right.* 
+***Figure 3:** When the Gryllodes sigillatus diet percentage was higher, there was more sexual signalling, and also, their weight increased by 0.00002g [95% Cl: 0.0000036 - 0.0000387]. The colours on the graph represent the different diet percentages displayed in the key at the top. The regression lines show the trends in the different diet percentages; the dots are the individual data points. A marginal density plot for the distribution of the different weights, is separated by the different diet percentages, seen to the right.* 
 
-When the amount of sexual signalling is included as a main effect, it is insignificant as a predictor of weight change (Linear model F1,529 = 83.7, P 0.059), yet it was still included in the model due to the above-mentioned interactions effect.
+<p> </p>
 
-I hypothesised that the greater the size of the pronotum, the greater the increase in weight at higher diet percentages. Diet interacting with pronotum size is highly significant (Linear model F1,529 = 19.9, P\<0.001); with larger pronotums in millimetres and a higher diet percentage, the weight of the cricket will increase by 0.000753g [95% CI: 0.0003302 - 0.0011766] which can be seen in figure 4 and table 1. The diet is highly statistical in the developing stages of the crickets life. The higher diet percentage means larger pronotum, as seen in this study, yet the cricket is not an adult (Newcombe, et al 2015).
+When the amount of sexual signalling is included as a main effect, it is insignificant as a predictor of weight change (Linear model F1,529 = 83.7, P 0.059),yet it was still included in the model due to the above-mentioned interactions effect.
+
+I hypothesised that the greater the size of the pronotum, the greater the increase in weight at higher diet percentages. Diet interacting with pronotum size is highly significant (Linear model F1,529 = 19.9, P\<0.001); with larger pronotums in millimetres and a higher diet percentage, the weight of the cricket will increase by 0.000753g [95% CI: 0.0003302 - 0.0011766] (**Figure 4, Table 1**). The diet is highly statistical in the developing stages of the crickets life. The higher diet percentage means larger pronotum, as seen in this study, yet the cricket is not an adult (Newcombe, et al 2015).
 
 ```{r plot_starting_pronotum_diet, echo= FALSE, fig.asp = 0.7, fig.width= 7}
 facet_pronotum_diet
@@ -73,9 +121,21 @@ facet_pronotum_diet
 
 ***Figure 4: I**n Gryllodes sigillatus the larger the pronotum size, and the higher the diet percentage, the greater the increase in weight 0.000753g [95% CI: 0.0003302 - 0.0011766]. The lines are the regression slopes, with 95% confidence intervals; the dots are individual data points. Each plot depicts a different diet percentage, with a different colour for each one.*
 
+<p> </p>
+
 [**Conclusion**]{.underline}
 
-It was seen that all the variables in the study had a relationship with the weight change in the male cricket. The weight of the cricket was a measure to understand the cost of sexual signalling, amongst other factors. The weight of the cricket was highly affected by the starting mass of the cricket, pronotum size, and diet/pronotum, interacting together. With the starting mass negatively affecting the weight of the diet, pronotum size increases the weight of the cricket, and diet/pronotum also increases the weight of the cricket. However, interestingly, the calling effort, or amount of sexual signalling, does not significantly affect the weight of the cricket. Yet, when the diet is included as an interaction term, it is significant, which can be backed up by the literature that the crickets will adjust the amount of sexual signalling (Hunt, et al 2004). The amount of sexual signalling/pronotum interaction increases the weight of the cricket. In the future, another study should include the life span of the crickets, as another potential variable, and that if it is affected by the cost of sexual signalling, and the weight of the cricket.
+<p> </p>
+
+It was seen that all the variables in the study had a relationship with the weight change in the male cricket. The weight of the cricket was a measure to understand the cost of sexual signalling, amongst other factors. The weight of the cricket was highly affected by the starting mass of the cricket, pronotum size, and diet/pronotum, interacting together. With the starting mass negatively affecting the weight of the diet, pronotum size increases the weight of the cricket, and diet/pronotum also increases the weight of the cricket. However, interestingly, the calling effort, or amount of sexual signalling, does not significantly affect the weight of the cricket. Yet, when the diet is included as an interaction term, it is significant, which is supported by the literature that the crickets will adjust the amount of sexual signalling (Hunt, et al 2004). The amount of sexual signalling/pronotum interaction increases the weight of the cricket. In the future, another study should include the life span of the crickets, as another potential variable, and that if it is affected by the cost of sexual signalling, and the weight of the cricket.
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
 
 [**References**]{.underline}
 
@@ -111,7 +171,7 @@ Simmons, L.W., 1995. Correlates of male quality in the field cricket, Gryllus ca
 
 Tolle, A.E. and Wagner Jr, W.E., 2011. Costly signals in a field cricket can indicate high‐or low‐quality direct benefits depending upon the environment. *Evolution*, *65*(1), pp.283-294.
 
-WAGNER JR, W.E. and HOBACK, W.W., 1999. Nutritional effects on male calling behaviour in the variable field cricket. *Animal behaviour*, *57*(1), pp.89-95.
+Wagner JR, W.E. and Hoback, W.W., 1999. Nutritional effects on male calling behaviour in the variable field cricket. *Animal behaviour*, *57*(1), pp.89-95.
 
 Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). "Welcome to the tidyverse." Journal of Open Source Software, 4(43), <doi:10.21105/joss.01686>.
 

@@ -10,7 +10,7 @@ GGally::ggpairs(filter_cricket)# everything plot
 # change_in_weight/pronotum/sing ✔ ----
 
 weight_pronotum_song_scatter <-  # naming it
-ggplot(filter_cricket, 
+ggplot(filter_cricket, # using the filter cricket data set
        aes(x= pronotum,
            y= change_in_weight,
            colour=song_week))+
@@ -19,8 +19,7 @@ ggplot(filter_cricket,
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour="black")+# colour of the regression line
   theme_classic()+
   labs(x = "Pronotum size (mm)", # labs names
-       y = "Weight change (g)",
-       caption = "test")
+       y = "Weight change (g)")
  
 # shows a positive correlation 
 #__________________________----
@@ -38,8 +37,7 @@ ggplot(filter_cricket,
   facet_wrap(~ diet)+ # seprate plots for each diet percentage
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+ # colour of the lm
   labs(x = "Sexaul signalling",
-       y = "Weight change (g)",
-       caption = "test")
+       y = "Weight change (g)")
 
 
 #_________________________----
@@ -73,8 +71,7 @@ facet_pronotum_diet <-
   facet_wrap(~ diet)+
   geom_smooth(method = "lm", se = TRUE, fullrange = TRUE, colour= "#36454F")+
   labs(x = "Pronotum Size (mm)",
-       y = "Weight change (g)",
-       caption = "test")
+       y = "Weight change (g)")
 
 
 # increase in weight for the higher food percentages, the smaller the pronotum the bigger increase in weight

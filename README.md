@@ -38,7 +38,7 @@ The decorated cricket data is a csv-formatted data set this report will test the
 
 The tasklist for this assignment includes:
 
--   Analyse one dataset contained within this repository (cricket_song.csv - used)
+-   Analyse one dataset contained within this repository (cricket_song.csv was used)
 -   Use Markdown to write a formal lab report: hand the output in separately through Blackboard
 -   Include all required Rscripts and Rmd files needed to fully reproduce your report here
 -   Submit this repo to the GitHub Classroom by the assignment deadline
@@ -50,7 +50,7 @@ The data surrounds multiple variables that can be a proxy for the cost of the de
 reference link ---\>
 
 | Variable         | Definition                                                                                                 |
-|------------------|------------------------------------------------------------------------------------------------------------|
+|---------------|---------------------------------------------------------|
 | Change_in_weight | Change in weight(g)                                                                                        |
 | Diet             | Percentage nutritional content of the food the animal was fed                                              |
 | Song_week        | The total amount of time the cricket spent singing in the first week of the experiment                     |

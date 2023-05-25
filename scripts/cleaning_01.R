@@ -9,7 +9,7 @@ library(patchwork)# allows for plots to be knitted together
 
 #💾 IMPORTING DATA ----
  
-cricket <- read.csv("data/cricket_song.csv")
+cricket <- read.csv("data/cricket_song.csv")# reading the csv data file
 
 head(cricket)# checking the data has loaded 
 
